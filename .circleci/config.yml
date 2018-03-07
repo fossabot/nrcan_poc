@@ -44,8 +44,9 @@ jobs:
           command: |
               yarn install
               sudo yarn global add now
-              URL=$(now -t ${NOW_TOKEN} --public)
-              now -t ${NOW_TOKEN} alias set ${URL} poc
+              URL=$(now --token ${NOW_TOKEN} --public)
+              now --token ${NOW_TOKEN} alias set ${URL} poc
+              now --token ${NOW_TOKEN} rm nrcan_poc --safe --yes
           name: "Deploy Proof of Concept to now.sh"
 
 workflows:
