@@ -1,11 +1,23 @@
 module.exports = {
-  parser: "babel-eslint",
-  extends: ["standard", "prettier", "plugin:import/recommended", "plugin:security/recommended"],
-  plugins: ["jest", "security"],
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  extends: [
+    'standard',
+    'prettier',
+    'plugin:react/recommended',
+    'eslint:recommended',
+    'plugin:import/recommended',
+    'plugin:security/recommended',
+  ],
+  plugins: ['jest', 'security', 'react'],
   env: {
-    "jest/globals": true,
+    'jest/globals': true,
   },
   rules: {
-    "comma-dangle": ["error", "always-multiline"],
+    'comma-dangle': ['error', 'always-multiline'],
   },
 }
