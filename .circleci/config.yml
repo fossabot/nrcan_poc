@@ -59,4 +59,4 @@ workflows:
             - build
           filters:
             branches:
-              only: poc
+              only: master
