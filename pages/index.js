@@ -5,9 +5,9 @@ const Index = () => (
     <style jsx>{`
       p {
         color: red;
-
+      }
     `}</style>
-    <p>Hello World!</p>
+  <p>Fully-automated luxury deployments!</p>
   </div>
 )
 Index.displayName = 'Index'

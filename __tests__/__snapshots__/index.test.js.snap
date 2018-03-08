@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
+exports[`With Snapshot Testing App shows "Fully-automated luxury deployments!" 1`] = `
 <div
-  className="jsx-152973761"
+  className="jsx-2982525546"
 >
   <p
-    className="jsx-152973761"
+    className="jsx-2982525546"
   >
-    Hello World!
+    Fully-automated luxury deployments!
   </p>
 </div>
 `;
