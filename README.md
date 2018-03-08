@@ -1,37 +1,35 @@
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zeit/next.js/tree/master/examples/with-jest)
-# Example app with jest tests
+# Proof of Concept for the NRCAN API
 
-## How to use
+[![CircleCI](https://circleci.com/gh/cds-snc/nrcan_poc/tree/master.svg?style=svg)](https://circleci.com/gh/cds-snc/nrcan_poc/tree/master)
 
-### Using `create-next-app`
+This application returns housing energy efficiency data collected by NRCAN.
 
-Download [`create-next-app`](https://github.com/segmentio/create-next-app) to bootstrap the example:
+It is the first consumer of the groundbreaking [NRCAN API](https://github.com/cds-snc/nrcan_api/); as such, it serves two purposes:
+1. it is an interface on top of the API allowing non-developers to query NRCAN data
+2. it provides an implementation example for future services that will connect to the API
 
-```
-npm i -g create-next-app
-create-next-app --example with-jest with-jest-app
-```
 
-### Download manually
+## Startup
 
-Download the example [or clone the repo](https://github.com/zeit/next.js):
+#### Prerequisites
+
+You're going to need `npm` installed globally, and preferably `yarn` as well.
+
+#### Liftoff :rocket:
+
+1. Clone repo
+2. Install dependencies with `yarn`
+3. Run the app locally with `yarn dev`
+4. [http://localhost:3000/](http://localhost:3000/search)
+
+Nice! You're now at the bleeding edge of Canadian Government tech. Treat yourself to a congratulatory Timbit.
+
+
+## Tests
+
+Run the tests with:
 
 ```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-jest
-cd with-jest
+yarn test
+yarn lint
 ```
-
-Install it and test:
-
-```bash
-npm install
-npm test
-```
-
-## The idea behind the example
-
-This example features:
-
-* An app with jest tests
-
-> A very important part of this example is the `.babelrc` file which configures the `test` environment to use `babel-preset-env` and configures it to transpile modules to `commonjs`). [Learn more](https://github.com/zeit/next.js/issues/2895).
