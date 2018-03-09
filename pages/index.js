@@ -99,6 +99,10 @@ injectGlobal`
 	input[type=text]:focus {
 		border: 3px solid #555;
 	}
+
+  #index-page {
+    background-color: yellow;
+  }
 `
 
 const IndexPage = () => (
@@ -120,7 +124,7 @@ const IndexPage = () => (
     </header>
 
     <main role="main">
-      <header>
+      <header id="index-page">
         <div id="page-header">
           <p>Natural Resource Canada</p>
           <h1>EnerGuide API</h1>
