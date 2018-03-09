@@ -174,14 +174,6 @@ export const container2 = css`
   }
 `
 
-export const footer = css`
-  background: #f1f1f1;
-  color: black;
-  padding-left: 60px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-`
-
 export const header = css`
   margin-right: 320px;
   margin-left: 60px;
