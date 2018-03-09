@@ -1,11 +1,12 @@
-import React from 'react'
-import { hydrate, injectGlobal } from 'react-emotion'
-import AlphaBanner from '../components/AlphaBanner'
+import React from "react";
+import { hydrate, injectGlobal } from "react-emotion";
+import AlphaBanner from "../components/AlphaBanner";
+import Link from "next/link";
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
-if (typeof window !== 'undefined') {
-  hydrate(window.__NEXT_DATA__.ids)
+if (typeof window !== "undefined") {
+  hydrate(window.__NEXT_DATA__.ids);
 }
 
 injectGlobal`
@@ -98,17 +99,106 @@ injectGlobal`
 	input[type=text]:focus {
 		border: 3px solid #555;
 	}
-`
+`;
 
 const IndexPage = () => (
   <div>
     <header>
       <AlphaBanner />
-    </header>
-    <main>
-      <p>Fully-automated luxury deployments!</p>
-    </main>
-  </div>
-)
 
-export default IndexPage
+      <section>
+        <div id="federal-banner">
+          <Link href="https://www.canada.ca/fr.html">
+            <a>Francais</a>
+          </Link>
+        </div>
+
+        <Link href="https://github.com/cds-snc/nrcan_api">
+          <a>EnerGuide API</a>
+        </Link>
+      </section>
+    </header>
+
+    <main role="main">
+      <header>
+        <div id="page-header">
+          <p>Natural Resource Canada</p>
+          <h1>EnerGuide API</h1>
+        </div>
+
+        <h2>What is the EnerGuide API?</h2>
+        <p>
+          The EnerGuide API allows you to access the housing data provided by
+          Natural Resource Canada. You will have open access the data, and will
+          be able to query to an individual dwelling.
+        </p>
+        <Link href="/search">
+          <a>Test the API</a>
+        </Link>
+        <Link href="https://github.com/cds-snc/nrcan_api">
+          <a>Access the API</a>
+        </Link>
+      </header>
+
+      <div id="page-body">
+        <section>
+          <h2>What is an API?</h2>
+          <p>
+            An <strong>Application Programming Interface</strong>Application
+            Programming Interface, or
+            <abbr title="Application Programming Interface">API</abbr>, is a set
+            of routines, protocols and tools for building software. Many
+            applications can talk to each other and deliver a response.
+          </p>
+        </section>
+        <section>
+          <h2>What are the benefits of the EnerGuide API?</h2>
+          <h3>View open data</h3>
+          <p>
+            The EnerGuide API will help make energy consumption data accessible
+            for everyone.
+          </p>
+          <h3>Query specific data</h3>
+          <p>
+            You can choose to access the granular data that you need. You will
+            benefit from the ability to extract data data that is specific to
+            your needs.
+          </p>
+          <h3>Access current data</h3>
+          <p>
+            The EnerGuide API will help make energy consumption data accessible
+            for everyone.
+          </p>
+        </section>
+        <section>
+          <h2>How can I use the EnerGuide API?</h2>
+          <p>
+            Developers and data analysts can allow users to query specific
+            information from large data sets. They set the rules that will guide
+            the user to what they need.{" "}
+          </p>
+          <h3>
+            To see how it can be used,&nbsp;
+            <Link href="/search">
+              <a>test the API</a>
+            </Link>
+          </h3>
+          <h3>
+            Ready to use the Energuide API?&nbsp;
+            <Link href="https://github.com/cds-snc/nrcan_api">
+              <a>Read the documentation</a>
+            </Link>
+          </h3>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <Link href="https://www.canada.ca/en/transparency/privacy.html">
+        <a>Privacy</a>
+      </Link>
+    </footer>
+  </div>
+);
+
+export default IndexPage;
