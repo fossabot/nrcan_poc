@@ -2,6 +2,8 @@ import React from 'react'
 import { hydrate, injectGlobal } from 'react-emotion'
 import AlphaBanner from '../components/AlphaBanner'
 import Link from 'next/link'
+import { WordMark } from '@cdssnc/gcui'
+import { GoCSignature } from '@cdssnc/gcui'
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
@@ -16,6 +18,7 @@ const SearchPage = () => (
 
       <section>
         <div id="federal-banner">
+          <GoCSignature width="10em" flag="#000" />
           <Link href="https://www.canada.ca/fr.html">
             <a>Francais</a>
           </Link>
@@ -102,6 +105,7 @@ const SearchPage = () => (
       <Link href="https://www.canada.ca/en/transparency/privacy.html">
         <a>Privacy</a>
       </Link>
+      <WordMark width="6em" flag="#000" />
     </footer>
   </div>
 )
