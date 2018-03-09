@@ -1,12 +1,12 @@
-import React from "react";
-import { hydrate, injectGlobal } from "react-emotion";
-import AlphaBanner from "../components/AlphaBanner";
-import Link from "next/link";
+import React from 'react'
+import { hydrate, injectGlobal } from 'react-emotion'
+import AlphaBanner from '../components/AlphaBanner'
+import Link from 'next/link'
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
-if (typeof window !== "undefined") {
-  hydrate(window.__NEXT_DATA__.ids);
+if (typeof window !== 'undefined') {
+  hydrate(window.__NEXT_DATA__.ids)
 }
 
 injectGlobal`
@@ -99,7 +99,7 @@ injectGlobal`
 	input[type=text]:focus {
 		border: 3px solid #555;
 	}
-`;
+`
 
 const IndexPage = () => (
   <div>
@@ -175,7 +175,7 @@ const IndexPage = () => (
           <p>
             Developers and data analysts can allow users to query specific
             information from large data sets. They set the rules that will guide
-            the user to what they need.{" "}
+            the user to what they need.{' '}
           </p>
           <h3>
             To see how it can be used,&nbsp;
@@ -199,6 +199,6 @@ const IndexPage = () => (
       </Link>
     </footer>
   </div>
-);
+)
 
-export default IndexPage;
+export default IndexPage
