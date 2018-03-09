@@ -211,4 +211,3 @@ export const submit = css`
   padding-left: 60px;
   padding-bottom: 60px;
 `
-

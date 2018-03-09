@@ -2,11 +2,11 @@ import React from 'react'
 import { css } from 'react-emotion'
 
 const banner = css`
-    background-color: black;
-    color: white;
-    padding-left: 60px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+  background-color: black;
+  color: white;
+  padding-left: 60px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 `
 
 const AlphaBanner = () => (
