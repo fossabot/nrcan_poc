@@ -12,7 +12,7 @@ const footer = css`
 `
 
 const Footer = () => (
-  <footer>
+  <footer className={footer}>
     <Link href="https://www.canada.ca/en/transparency/privacy.html">
       <a>Privacy</a>
     </Link>
