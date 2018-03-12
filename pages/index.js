@@ -2,12 +2,12 @@ import React from 'react'
 import { hydrate, injectGlobal } from 'react-emotion'
 import AlphaBanner from '../components/AlphaBanner'
 import Link from 'next/link'
-import { WordMark } from '@cdssnc/gcui'
 import { GoCSignature } from '@cdssnc/gcui'
+import Footer from '../components/Footer'
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && window.__NEXT_DATA__) {
   hydrate(window.__NEXT_DATA__.ids)
 }
 
@@ -194,13 +194,7 @@ const IndexPage = () => (
         </section>
       </div>
     </main>
-
-    <footer>
-      <Link href="https://www.canada.ca/en/transparency/privacy.html">
-        <a>Privacy</a>
-      </Link>
-      <WordMark width="6em" flag="#000" />
-    </footer>
+    <Footer />
   </div>
 )
 
