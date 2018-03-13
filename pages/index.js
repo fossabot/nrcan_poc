@@ -1,10 +1,7 @@
 import React from 'react'
 import { hydrate, injectGlobal } from 'react-emotion'
-import AlphaBanner from '../components/AlphaBanner'
-import FederalBanner from '../components/FederalBanner'
 import Link from 'next/link'
-import Footer from '../components/Footer'
-import { WordMark } from '@cdssnc/gcui'
+import Layout from '../components/Layout'
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
@@ -24,7 +21,7 @@ injectGlobal`
 	}
 
   main {
-		padding: 3rem 1rem;
+		padding: 0;
   }
 
 	h1 {
@@ -105,18 +102,17 @@ injectGlobal`
 	}
 
   #index-page {
-    background-color: yellow;
+    background-color: #FDD262;
+    padding: 60px;
+  }
+  #page-body{
+    padding: 60px;
   }
 `
 
 const IndexPage = () => (
-  <div>
-    <header>
-      <AlphaBanner />
-      <FederalBanner />
-    </header>
 
-    <main role="main">
+<Layout>
       <header id="index-page">
         <div id="page-header">
           <p>Natural Resources Canada</p>
@@ -188,9 +184,7 @@ const IndexPage = () => (
           </h3>
         </section>
       </div>
-    </main>
-    <Footer />
-  </div>
+</Layout>
 )
 
 export default IndexPage
