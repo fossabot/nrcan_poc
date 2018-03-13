@@ -1,10 +1,7 @@
 import React from 'react'
 import { hydrate, injectGlobal } from 'react-emotion'
-import AlphaBanner from '../components/AlphaBanner'
-import FederalBanner from '../components/FederalBanner'
 import Link from 'next/link'
-import Footer from '../components/Footer'
-import { WordMark } from '@cdssnc/gcui'
+import Layout from '../components/Layout'
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
@@ -110,12 +107,8 @@ injectGlobal`
 `
 
 const IndexPage = () => (
-  <div>
-    <header>
-      <AlphaBanner />
-      <FederalBanner />
-    </header>
 
+<Layout>
     <main role="main">
       <header id="index-page">
         <div id="page-header">
@@ -189,8 +182,7 @@ const IndexPage = () => (
         </section>
       </div>
     </main>
-    <Footer />
-  </div>
+</Layout>
 )
 
 export default IndexPage
