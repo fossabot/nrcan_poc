@@ -15,7 +15,10 @@ const Layout = (props) => (
 				<AlphaBanner />
 				<FederalBanner />
 			</header>
+
+		  <main role="main">
       {props.children}
+			</main>
 			<Footer />
     </div>
 )

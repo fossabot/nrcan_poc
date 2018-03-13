@@ -109,7 +109,6 @@ injectGlobal`
 const IndexPage = () => (
 
 <Layout>
-    <main role="main">
       <header id="index-page">
         <div id="page-header">
           <p>Natural Resources Canada</p>
@@ -181,7 +180,6 @@ const IndexPage = () => (
           </h3>
         </section>
       </div>
-    </main>
 </Layout>
 )
 
