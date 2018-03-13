@@ -21,7 +21,7 @@ injectGlobal`
 	}
 
   main {
-		padding: 3rem 1rem;
+		padding: 0;
   }
 
 	h1 {
@@ -102,7 +102,11 @@ injectGlobal`
 	}
 
   #index-page {
-    background-color: yellow;
+    background-color: #FDD262;
+    padding: 60px;
+  }
+  #page-body{
+    padding: 60px;
   }
 `
 
