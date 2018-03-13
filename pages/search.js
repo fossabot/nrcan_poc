@@ -1,6 +1,7 @@
 import React from 'react'
 import { hydrate } from 'react-emotion'
 import AlphaBanner from '../components/AlphaBanner'
+import FederalBanner from '../components/FederalBanner'
 import Link from 'next/link'
 import { GoCSignature } from '@cdssnc/gcui'
 import Footer from '../components/Footer'
@@ -15,19 +16,7 @@ const SearchPage = () => (
   <div>
     <header>
       <AlphaBanner />
-
-      <section>
-        <div id="federal-banner">
-          <GoCSignature width="10em" flag="#000" />
-          <Link href="https://www.canada.ca/fr.html">
-            <a>Francais</a>
-          </Link>
-        </div>
-
-        <Link href="https://github.com/cds-snc/nrcan_api">
-          <a>EnergGuide API</a>
-        </Link>
-      </section>
+      <FederalBanner />
     </header>
 
     <main role="main">
