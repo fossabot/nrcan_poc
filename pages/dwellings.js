@@ -14,9 +14,9 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__) {
   hydrate(window.__NEXT_DATA__.ids)
 }
 
-const DwellingsPage = withData(() => (
+const DwellingsPage = withData(({ url }) => (
   <div>
-    <DwellingsList />
+    <DwellingsList query={url.query} />
   </div>
 ))
 
