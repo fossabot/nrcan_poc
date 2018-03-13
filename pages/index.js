@@ -49,6 +49,7 @@ injectGlobal`
 		font-family: "Helvetica", sans-serif;
 		font-size: 19px;
 		line-height: 27px;
+    margin: 0;
 	}
 
 	a {

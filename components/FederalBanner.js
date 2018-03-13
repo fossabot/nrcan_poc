@@ -1,6 +1,5 @@
 import React from 'react'
-import { css } from 'react-emotion'
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import { GoCSignature } from '@cdssnc/gcui'
 import Link from 'next/link'
 
@@ -24,35 +23,32 @@ const mediaQuery = Object.keys(breakpoints).reduce((accumulator, label) => {
 }, {})
 
 const container = css`
+  padding: 20px 60px 10px 60px;
   display: flex;
-  width: 100%;
+  width: auto;
   justify-content: space-between;
+  background-color: black;
   ${mediaQuery.small(css`
     display: block;
   `)};
 `
 
-const fbanner = css`
-  padding-left: 60px;
-  padding-top: 10px;
-  padding-bottom: 3px;
-`
 const frlink = css`
   text-align: right;
-  color: black;
-  padding-right: 60px;
+  color: white;
 `
 
 const FederalBanner = () => (
-  <section className={fbanner}>
-    <div className={container}>
+  <section className={container}>
+
       <div>
-        <GoCSignature width="10em" flag="#000" />
+        <GoCSignature width="10em" flag="#FFF" text="#FFF" />
       </div>
+
       <Link href="https://www.canada.ca/fr.html">
         <a className={frlink}>Francais</a>
       </Link>
-    </div>
+
   </section>
 )
 
