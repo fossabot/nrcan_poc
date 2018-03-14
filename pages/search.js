@@ -1,10 +1,12 @@
 import React from 'react'
-import Layout from '../components/Layout'
 import { hydrate } from 'react-emotion'
-import AlphaBanner from '../components/AlphaBanner'
-import FederalBanner from '../components/FederalBanner'
 import Link from 'next/link'
 import { GoCSignature } from '@cdssnc/gcui'
+
+import Layout from '../components/Layout'
+import AlphaBanner from '../components/AlphaBanner'
+import FederalBanner from '../components/FederalBanner'
+import Breadcrumbs from '../components/Breadcrumbs'
 import Footer from '../components/Footer'
 
 // Adds server generated styles to emotion cache.
@@ -15,22 +17,14 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__) {
 
 const SearchPage = () => (
   <Layout title="Search">
-    <section>
-      <nav aria-label="Breadcrumb">
-        <ol>
-          <li>
-            <Link href="/">
-              <a>EnerGuide API</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/search">
-              <a aria-current="page">Search</a>
-            </Link>
-          </li>
-        </ol>
-      </nav>
-    </section>
+    <Breadcrumbs>
+      <Link href="/">
+        <a>EnerGuide API</a>
+      </Link>
+      <Link href="/search">
+        <a>Search</a>
+      </Link>
+    </Breadcrumbs>
 
     <div id="page-body">
       <header>
