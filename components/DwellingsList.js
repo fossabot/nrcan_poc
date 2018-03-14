@@ -1,27 +1,42 @@
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-const DWELLINGS_LIMIT = 100
+const DEFAULT_FILE_ID = '3C10E11075'
 
-function DwellingList({ data: { loading, error, dwellings }, query }) {
+function DwellingList({ data: { loading, error, dwellings, variables } }) {
+  /* the API will return _all evaluations_ for dwellings that contain
+  at least one evaluation, so once we get back the dwelling, we then
+  have to actually find the evaluation we wanted originally. */
+
+  /* p.s. I am *so sorry* about this, future developers */
+  const returnTheRightEvaluation = (evaluations, _fileId) => {
+    return evaluations.find(e => e.fileId === _fileId)
+  }
+
   if (error) {
     return <div>something's broke yo 🤯</div>
   }
   if (dwellings) {
     if (dwellings.results && dwellings.results.length) {
-      let { results } = dwellings
+      let { city, yearBuilt, evaluations } = dwellings.results[0]
+      let {
+        ersRating,
+        evaluationType,
+        fileId,
+        heating: { energySourceEnglish, energySourceFrench, outputSizeKW } = {},
+      } =
+        returnTheRightEvaluation(evaluations, variables.fileId) || {}
+
       return (
         <section>
-          <ol>
-            {results.map((dwelling, index) => (
-              <li key={index}>
-                <div>
-                  <p>house ID: {dwelling.houseId}</p>
-                  <p>city: {dwelling.city}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <p>city: {city}</p>
+          <p>year built: {yearBuilt}</p>
+          <p>ers rating: {ersRating}</p>
+          <p>evaluation type: {evaluationType}</p>
+          <p>file id: {fileId}</p>
+          <p>fuel type (en): {energySourceEnglish}</p>
+          <p>fuel type (fr): {energySourceFrench}</p>
+          <p>output (KW/h): {outputSizeKW}</p>
         </section>
       )
     }
@@ -31,22 +46,30 @@ function DwellingList({ data: { loading, error, dwellings }, query }) {
 }
 
 export const allCities = gql`
-  query allCities($value: String!, $limit: Int!) {
+  query getEvaluationByFileId($fileId: String!) {
     dwellings(
-      filters: [{ field: dwellingCity, comparator: gt, value: $value }]
-      limit: $limit
+      filters: [{ field: evaluationFileId, comparator: eq, value: $fileId }]
     ) {
       results {
-        houseId
         city
+        yearBuilt
+        evaluations {
+          ersRating
+          evaluationType
+          fileId
+          heating {
+            energySourceEnglish
+            energySourceFrench
+            outputSizeKW
+          }
+        }
       }
     }
   }
 `
 
-const allCitiesDefaultOptions = {
-  value: 'A',
-  limit: DWELLINGS_LIMIT,
+const defaultOpts = {
+  fileId: DEFAULT_FILE_ID,
 }
 
 const returnDictFromQueryVars = function(query, key, cb = val => val) {
@@ -61,9 +84,8 @@ export default graphql(allCities, {
   options: props => ({
     variables: Object.assign(
       {},
-      allCitiesDefaultOptions,
-      returnDictFromQueryVars(props.query, 'value', val => val.toUpperCase()),
-      returnDictFromQueryVars(props.query, 'limit'),
+      defaultOpts,
+      returnDictFromQueryVars(props.query, 'fileId', val => val.toUpperCase()),
     ),
   }),
   props: ({ data }) => ({
