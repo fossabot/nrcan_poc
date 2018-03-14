@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "jest",
-    "dev": "next",
+    "dev": "next -p 3002",
     "build": "next build",
     "start": "next start",
     "dbg": "node --inspect-brk node_modules/jest/bin/jest.js",

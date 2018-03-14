@@ -10,7 +10,6 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__) {
 }
 
 injectGlobal`
-
 	html, body {
     padding: 0;
 		margin: 0;
@@ -111,80 +110,79 @@ injectGlobal`
 `
 
 const IndexPage = () => (
-
-<Layout>
-      <header id="index-page">
-        <div id="page-header">
-          <p>Natural Resources Canada</p>
-          <h1>EnerGuide API</h1>
-        </div>
-
-        <h2>What is the EnerGuide API?</h2>
-        <p>
-          The EnerGuide API allows you to access the housing data provided by
-          Natural Resources Canada. You will have open access the data, and will
-          be able to query to an individual dwelling.
-        </p>
-        <Link href="/search">
-          <a>Test the API</a>
-        </Link>
-        <Link href="https://github.com/cds-snc/nrcan_api">
-          <a>Access the API</a>
-        </Link>
-      </header>
-
-      <div id="page-body">
-        <section>
-          <h2>What is an API?</h2>
-          <p>
-            An <strong>Application Programming Interface</strong>Application
-            Programming Interface, or
-            <abbr title="Application Programming Interface">API</abbr>, is a set
-            of routines, protocols and tools for building software. Many
-            applications can talk to each other and deliver a response.
-          </p>
-        </section>
-        <section>
-          <h2>What are the benefits of the EnerGuide API?</h2>
-          <h3>View open data</h3>
-          <p>
-            The EnerGuide API will help make energy consumption data accessible
-            for everyone.
-          </p>
-          <h3>Query specific data</h3>
-          <p>
-            You can choose to access the granular data that you need. You will
-            benefit from the ability to extract data data that is specific to
-            your needs.
-          </p>
-          <h3>Access current data</h3>
-          <p>
-            The EnerGuide API will help make energy consumption data accessible
-            for everyone.
-          </p>
-        </section>
-        <section>
-          <h2>How can I use the EnerGuide API?</h2>
-          <p>
-            Developers and data analysts can allow users to query specific
-            information from large data sets. They set the rules that will guide
-            the user to what they need.{' '}
-          </p>
-          <h3>
-            To see how it can be used,&nbsp;
-            <Link href="/search">
-              <a>test the API</a>
-            </Link>
-          </h3>
-          <h3>
-            Ready to use the Energuide API?&nbsp;
-            <Link href="https://github.com/cds-snc/nrcan_api">
-              <a>Read the documentation</a>
-            </Link>
-          </h3>
-        </section>
+  <Layout title="EnerGuide API">
+    <header id="index-page">
+      <div id="page-header">
+        <p>Natural Resources Canada</p>
+        <h1>EnerGuide API</h1>
       </div>
-</Layout>
+
+      <h2>What is the EnerGuide API?</h2>
+      <p>
+        The EnerGuide API allows you to access the housing data provided by
+        Natural Resources Canada. You will have open access the data, and will
+        be able to query to an individual dwelling.
+      </p>
+      <Link href="/search">
+        <a>Test the API</a>
+      </Link>
+      <Link href="https://github.com/cds-snc/nrcan_api">
+        <a>Access the API</a>
+      </Link>
+    </header>
+
+    <div id="page-body">
+      <section>
+        <h2>What is an API?</h2>
+        <p>
+          An <strong>Application Programming Interface</strong>Application
+          Programming Interface, or
+          <abbr title="Application Programming Interface">API</abbr>, is a set
+          of routines, protocols and tools for building software. Many
+          applications can talk to each other and deliver a response.
+        </p>
+      </section>
+      <section>
+        <h2>What are the benefits of the EnerGuide API?</h2>
+        <h3>View open data</h3>
+        <p>
+          The EnerGuide API will help make energy consumption data accessible
+          for everyone.
+        </p>
+        <h3>Query specific data</h3>
+        <p>
+          You can choose to access the granular data that you need. You will
+          benefit from the ability to extract data data that is specific to your
+          needs.
+        </p>
+        <h3>Access current data</h3>
+        <p>
+          The EnerGuide API will help make energy consumption data accessible
+          for everyone.
+        </p>
+      </section>
+      <section>
+        <h2>How can I use the EnerGuide API?</h2>
+        <p>
+          Developers and data analysts can allow users to query specific
+          information from large data sets. They set the rules that will guide
+          the user to what they need.{' '}
+        </p>
+        <h3>
+          To see how it can be used,&nbsp;
+          <Link href="/search">
+            <a>test the API</a>
+          </Link>
+        </h3>
+        <h3>
+          Ready to use the Energuide API?&nbsp;
+          <Link href="https://github.com/cds-snc/nrcan_api">
+            <a>Read the documentation</a>
+          </Link>
+        </h3>
+      </section>
+    </div>
+  </Layout>
 )
 
 export default IndexPage
