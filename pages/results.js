@@ -10,11 +10,11 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__) {
   hydrate(window.__NEXT_DATA__.ids)
 }
 
-const getFileId = url => url.query.fileId || '3C10E11075'
+const getHouseId = url => url.query.houseId || '189250'
 
 const ResultsPage = withData(({ url }) => (
-  <Layout title={`Results for file id: ${getFileId(url)}`}>
-    <h1>{`Results for file id: ${getFileId(url)}`}</h1>
+  <Layout title={`Results for file id: ${getHouseId(url)}`}>
+    <h1>{`Results for file id: ${getHouseId(url)}`}</h1>
     <ResultsList query={url.query} />
   </Layout>
 ))

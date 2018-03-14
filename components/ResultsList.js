@@ -1,7 +1,7 @@
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-const DEFAULT_FILE_ID = '3C10E11075'
+const DEFAULT_HOUSE_ID = 189250
 
 function ResultsList({ data: { loading, error, dwellings, variables } }) {
   /* the API will return _all evaluations_ for dwellings that contain
@@ -9,27 +9,31 @@ function ResultsList({ data: { loading, error, dwellings, variables } }) {
   have to actually find the evaluation we wanted originally. */
 
   /* p.s. I am *so sorry* about this, future developers */
-  const returnTheRightEvaluation = (evaluations, _fileId) => {
-    return evaluations.find(e => e.fileId === _fileId)
-  }
+  // const returnTheRightEvaluation = (evaluations, _houseId) => {
+  //   return evaluations.find(e => e.houseId === _houseId)
+  // }
 
   if (error) {
     return <div>something{"'"}s broke yo 🤯</div>
   }
   if (dwellings) {
     if (dwellings.results && dwellings.results.length) {
-      let { city, yearBuilt, evaluations } = dwellings.results[0]
+      let { city, yearBuilt, evaluations, houseId } = dwellings.results[0]
+      // clone object so that we can re-assign to "heating"
+      let evaluation = JSON.parse(JSON.stringify(evaluations[0]))
+      evaluation['heating'] =
+        evaluation['heating'] === null ? {} : evaluation['heating']
       let {
         ersRating,
         evaluationType,
         fileId,
         heating: { energySourceEnglish, energySourceFrench, outputSizeKW } = {},
-      } =
-        returnTheRightEvaluation(evaluations, variables.fileId) || {}
+      } = evaluation
 
       return (
         <section>
           <p>city: {city}</p>
+          <p>house id: {houseId}</p>
           <p>year built: {yearBuilt}</p>
           <p>ers rating: {ersRating}</p>
           <p>evaluation type: {evaluationType}</p>
@@ -46,13 +50,14 @@ function ResultsList({ data: { loading, error, dwellings, variables } }) {
 }
 
 export const allCities = gql`
-  query getEvaluationByFileId($fileId: String!) {
+  query getEvaluationByFileId($houseId: String!) {
     dwellings(
-      filters: [{ field: evaluationFileId, comparator: eq, value: $fileId }]
+      filters: [{ field: dwellingHouseId, comparator: eq, value: $houseId }]
     ) {
       results {
         city
         yearBuilt
+        houseId
         evaluations {
           ersRating
           evaluationType
@@ -69,7 +74,7 @@ export const allCities = gql`
 `
 
 const defaultOpts = {
-  fileId: DEFAULT_FILE_ID,
+  houseId: 189250,
 }
 
 const returnDictFromQueryVars = function(query, key, cb = val => val) {
@@ -85,7 +90,7 @@ export default graphql(allCities, {
     variables: Object.assign(
       {},
       defaultOpts,
-      returnDictFromQueryVars(props.query, 'fileId', val => val.toUpperCase()),
+      returnDictFromQueryVars(props.query, 'houseId', val => val.toUpperCase()),
     ),
   }),
   props: ({ data }) => ({
