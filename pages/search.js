@@ -1,13 +1,9 @@
 import React from 'react'
 import { hydrate } from 'react-emotion'
 import Link from 'next/link'
-import { GoCSignature } from '@cdssnc/gcui'
 
 import Layout from '../components/Layout'
-import AlphaBanner from '../components/AlphaBanner'
-import FederalBanner from '../components/FederalBanner'
 import Breadcrumbs from '../components/Breadcrumbs'
-import Footer from '../components/Footer'
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
