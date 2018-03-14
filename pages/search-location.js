@@ -3,12 +3,6 @@ import { hydrate, injectGlobal } from 'react-emotion'
 import AlphaBanner from '../components/AlphaBanner'
 import Link from 'next/link'
 
-// Adds server generated styles to emotion cache.
-// '__NEXT_DATA__.ids' is set in '_document.js'
-if (typeof window !== 'undefined') {
-  hydrate(window.__NEXT_DATA__.ids)
-}
-
 const SearchLocationPage = () => (
   <div>
     <header>
