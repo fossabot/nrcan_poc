@@ -1,4 +1,11 @@
-# Proof of Concept for the NRCAN API
+# 🚨 Deprecation notice 🚨
+Due to problems getting translations to work properly with Next.js, we are deprecating this code and moving over to the more tersely-named [https://github.com/cds-snc/poc/](https://github.com/cds-snc/nrcan_api/).
+
+The deployed code can still be found at [https://nrcan-poc.now.sh](https://nrcan-poc.now.sh) but as of March 14, 2018, we are not expecting to update it any longer.
+
+
+
+## Proof of Concept for the NRCAN API
 
 [![CircleCI](https://circleci.com/gh/cds-snc/nrcan_poc/tree/master.svg?style=svg)](https://circleci.com/gh/cds-snc/nrcan_poc/tree/master)
 
@@ -9,7 +16,7 @@ It is the first consumer of the groundbreaking [NRCAN API](https://github.com/cd
 2. it provides an implementation example for future services that will connect to the API
 
 
-## Startup
+### Startup
 
 #### Prerequisites
 
@@ -25,7 +32,7 @@ You're going to need `npm` installed globally, and preferably `yarn` as well.
 Nice! You're now at the bleeding edge of Canadian Government tech. Treat yourself to a congratulatory Timbit.
 
 
-## Tests
+### Tests
 
 Run the tests with:
 
