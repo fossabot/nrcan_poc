@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 const DEFAULT_FILE_ID = '3C10E11075'
 
-function DwellingList({ data: { loading, error, dwellings, variables } }) {
+function ResultsList({ data: { loading, error, dwellings, variables } }) {
   /* the API will return _all evaluations_ for dwellings that contain
   at least one evaluation, so once we get back the dwelling, we then
   have to actually find the evaluation we wanted originally. */
@@ -14,7 +14,7 @@ function DwellingList({ data: { loading, error, dwellings, variables } }) {
   }
 
   if (error) {
-    return <div>something's broke yo 🤯</div>
+    return <div>something{"'"}s broke yo 🤯</div>
   }
   if (dwellings) {
     if (dwellings.results && dwellings.results.length) {
@@ -91,4 +91,4 @@ export default graphql(allCities, {
   props: ({ data }) => ({
     data,
   }),
-})(DwellingList)
+})(ResultsList)
