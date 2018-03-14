@@ -1,10 +1,6 @@
 import React from 'react'
 import { hydrate } from 'react-emotion'
-import AlphaBanner from '../components/AlphaBanner'
-import Link from 'next/link'
-import { GoCSignature } from '@cdssnc/gcui'
-import Footer from '../components/Footer'
-
+import Layout from '../components/Layout'
 import DwellingsList from '../components/DwellingsList'
 import withData from '../lib/withData'
 
@@ -14,10 +10,13 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__) {
   hydrate(window.__NEXT_DATA__.ids)
 }
 
+const getFileId = url => url.query.fileId || '3C10E11075'
+
 const DwellingsPage = withData(({ url }) => (
-  <div>
+  <Layout title={`Results for file id: ${getFileId(url)}`}>
+    <h1>{`Results for file id: ${getFileId(url)}`}</h1>
     <DwellingsList query={url.query} />
-  </div>
+  </Layout>
 ))
 
 export default DwellingsPage

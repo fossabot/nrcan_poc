@@ -1,5 +1,5 @@
 import React from 'react'
-import { hydrate, injectGlobal } from 'react-emotion'
+import { hydrate } from 'react-emotion'
 import AlphaBanner from '../components/AlphaBanner'
 import Link from 'next/link'
 
@@ -51,7 +51,7 @@ const SearchLocationPage = () => (
         </header>
         <form aria-labelledby="search-by-location-description">
           <h2>
-            <label for="location" id="location-label">
+            <label htmlFor="location" id="location-label">
               Location
             </label>
           </h2>
@@ -81,21 +81,21 @@ const SearchLocationPage = () => (
               name="energy-source"
               value="oil"
             />
-            <label for="energy-source-1">Oil</label>
+            <label htmlFor="energy-source-1">Oil</label>
             <input
               type="checkbox"
               id="energy-source-2"
               name="energy-source"
               value="electricity"
             />
-            <label for="energy-source-2">Electricity</label>
+            <label htmlFor="energy-source-2">Electricity</label>
             <input
               type="checkbox"
               id="energy-source-3"
               name="energy-source"
               value="natural-gas"
             />
-            <label for="energy-source-3">Natural gas</label>
+            <label htmlFor="energy-source-3">Natural gas</label>
           </fieldset>
           <button type="submit">Search</button>
         </form>
