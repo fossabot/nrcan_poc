@@ -8,6 +8,7 @@ The deployed code can still be found at [https://nrcan-poc.now.sh](https://nrcan
 ## Proof of Concept for the NRCAN API
 
 [![CircleCI](https://circleci.com/gh/cds-snc/nrcan_poc/tree/master.svg?style=svg)](https://circleci.com/gh/cds-snc/nrcan_poc/tree/master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcds-snc%2Fnrcan_poc.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcds-snc%2Fnrcan_poc?ref=badge_shield)
 
 This application returns housing energy efficiency data collected by NRCAN.
 
@@ -40,3 +41,7 @@ Run the tests with:
 yarn test
 yarn lint
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcds-snc%2Fnrcan_poc.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcds-snc%2Fnrcan_poc?ref=badge_large)
